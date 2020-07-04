@@ -115,7 +115,7 @@ shinyUI(fluidPage(
                    #                  uiOutput("grbox")
                    #  ),
 
-                   dataTableOutput("DT")
+                   DT::dataTableOutput("DT")
                    
                  )
         ),

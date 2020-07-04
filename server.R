@@ -15,7 +15,6 @@ library(dplyr)
 library(RCurl)
 
 
-
 shinyServer(function(input, output, session) {
   
   # ---------- Read csv file ------------------
@@ -232,7 +231,7 @@ shinyServer(function(input, output, session) {
   
   # ----------------- Data Table ----------------------
   # Display data table
-  output$DT <- renderDataTable({
+  output$DT <- DT::renderDataTable({
     if (input$DataType == "n0"){ DT <- yivi() }
     if (input$DataType == "n1"){ DT <- Nest() }
     return (DT)
@@ -399,7 +398,7 @@ shinyServer(function(input, output, session) {
       paste("forest-", Sys.time(), ".png", sep = "")
     }, 
     content = function(file) {
-      png(file, width = FWinW(), height = FWinW()) 
+      png(file, width = FWinW(), height = FWinH()) 
       Fplot()
       dev.off() 
     }
